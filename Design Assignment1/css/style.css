@@ -1,0 +1,92 @@
+
+.upper-block p{
+    padding: 19px 0;
+    line-height: 22px;
+}
+
+.col-3-right-l h3{
+    margin-bottom: 23px;
+}
+
+.col-3-right-r h3{
+    margin-bottom: 23px;
+}
+.col-3-right-l ul{
+    list-style: none;
+}
+
+.col-3-right-l ul li{
+    line-height: 26px;
+}
+/* .search-logo{
+    background-image: url("../images/tollens.png");
+    background-size: 100%;
+    display: block;
+} */
+
+.col-3-right-r .content p{
+    line-height: 22px;
+}
+
+.col-3-right-r span{
+    margin-left: 53px;
+}
+
+.col-3-right-l p{
+    line-height: 24px;
+}
+
+.col-3-right-l.mid.lower ul  {
+    list-style: none;
+}
+
+.col-3-right-l.mid.lower ul  li{
+    display: block;
+    float: left;
+}
+
+.wrapper2 h2{
+    color: #8c8c8c;
+    font-family: arial;
+}
+
+.block-3-upper h2{
+    color: #d1524c;
+}
+
+.block-3-upper p{
+    padding-top: 25px;
+    padding-left: 116px; 
+    padding-right: 116px;
+    line-height: 20px;
+    color: #7b8181;
+}
+
+.mid .card img{
+    width: 100%;
+}
+
+.mid ul{
+    list-style: none;
+}
+
+.mid ul li{
+    float: left;
+    display: block;
+    padding: 0 10px;
+}
+
+.mid ul li:first-child{
+    padding-left: 0;
+}
+
+.mind ul li:last-child{
+    padding-right: 0;
+}
+
+.footer-lower span {
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 13px;
+}
+

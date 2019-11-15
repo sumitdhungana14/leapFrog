@@ -1,0 +1,16 @@
+
+.mid .content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-lower{
+    background: #68b3ae;
+}
+.footer-lower .left{
+    float:left;
+}
+
+.footer-lower .right{
+    float:right;
+}
