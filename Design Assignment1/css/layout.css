@@ -1,7 +1,203 @@
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+
+.header-top{
+    background: url(../img_coll/header-bg.png) bottom left repeat-x #76c7c1;
+
+}
+
+.wrapper{
+    width: 1170px;
+    margin: 0 auto;
+    
+}
+
+.header .top-left{
+    float: left;
+    padding:30px 0;
+}
+
+.header .top-right{
+    float: right;
+    padding:30px 0;
+}
+
+.header-bottom{
+    background: #ececec;
+}
+ .header-bottom .bottom-right{
+     margin: 0 auto;
+ }
+.bottom-header-wrapper{
+    padding: 30px 0;
+}
+
+
+.block-1, .block-3{
+    background-color: #f3f3f3;
+}
+ .upper-block{
+     background: url(../img_coll/inverted-triangle.png) top left no-repeat;
+       }
+.upper-block p, .mid p{
+    color: #a0a0a0;
+} 
+.col-3-right-l{
+    width: 840px;
+    float: left;
+}
+
+.list-item-padding{
+    padding-left:20px;
+    color: #a0a0a0;
+}
+
+.col-3-right-l .left{
+    width: 274px;
+    float: left;
+}
+
+.col-3-right-l .mid{
+    width: 552px;
+    float: right;
+}
+
+.col-3-right-r{
+    width: 274px;
+    float: right;
+}
+
+.col-3-right-r .content{
+    padding: 17px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.block-1 .upper-block{
+    padding-top: 56px;
+}
+
+.col-3-right{
+    padding: 53px 0;
+}
+
+.block-2{
+    background: #ececec;
+}
+.wrapper2{
+    width: 205px;
+    margin: 0 auto;
+    height: 183px;
+    padding: 73px 0px;
+    text-align: center;
+}
+
+.block-3{
+    text-align: center;
+}
+
+.block-3-upper{
+    padding-top: 98px;
+    padding-bottom: 68px;
+}
+
+.mid .card{
+    width: 120px;
+}
+
+.mid .lower{
+    margin-top: 53px;
+}
 
 .mid .content {
     margin-top: 20px;
     text-align: center;
+}
+
+.block-3-mid {
+   
+    margin-bottom: 40px;
+}
+
+.block-3-mid .happy-client{
+    float: left;
+    padding-right: 17px;
+    width: 148px;
+    font-size: 12px;
+}
+
+.block-3-mid .line-arrow{
+    float: right;
+    width: 1005px;
+}
+
+
+.block-3-mid .line-arrow .line {
+    width: 886px;
+    float: left;
+}
+
+.block-2{
+    /* background: url("../images/ourwork_pattern.png") repeat-x top left #eaeaea; */
+    padding-bottom: 209px;
+}
+
+.images{
+    float: left;
+    padding-left: 30px;
+}
+
+.images:first-child{
+    padding-left: 0px;
+}
+
+
+
+.images-wrapper{
+    position: relative;
+}
+
+.images-wrapper > div{
+    position: absolute;
+}
+
+.block-3-mid .line-arrow .line .image-container{
+    float: left;
+    width: 8px;
+    padding-top: 15px;
+}
+
+.block-3-mid .arrow{
+    float: right;
+    width: 100px;
+}
+
+.block-3-mid .arrow .left-arrow{
+    float: left;
+    width: 40px;
+}
+
+.block-3-mid .arrow .right-arrow{
+    float: right;
+    width: 40px;
+}
+
+
+.block-3-lower ul li{
+    margin-right: 25px;
+}
+
+.block-3-lower ul li:last-child{
+    margin-right: 0px;
+}
+
+.block-3-lower{
+    padding-bottom: 66px;
 }
 
 .footer-lower{
