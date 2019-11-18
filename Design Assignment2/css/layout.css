@@ -1,0 +1,506 @@
+.clearfix:after{
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.wrapper{
+    width: 1170px;
+    margin: 0 auto;
+
+}
+
+.header-top .logo{
+    float: left;
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 28px;
+    /* position: relative; */
+}
+
+
+.header-top .menu{
+    float: right;
+    width: 756px;
+    padding: 24px 0;
+
+}
+
+.header-top .menu-container{
+    position: relative;
+}
+
+.header-bottom .bottom-right{
+    margin: 0 auto;
+}
+.bottom-header-wrapper{
+   padding: 30px 0;
+}
+
+.image-container{
+    padding-top: 50px;
+}
+
+.project-slide-show .three-rectangle{
+    margin-top: 32px;
+
+}
+
+.project-slide-show .three-rectangle .rectangle-container{
+    /* display: inline; */
+    margin: 0 auto;
+    width: 200px;
+}
+
+.project-slide-show .grey-1{
+    float: left;
+}
+
+.project-slide-show .two-rectangle{
+    float: right;
+    width: 130px;
+}
+
+.project-slide-show .red{
+    float: left;
+}
+
+.project-slide-show .grey-2{
+    float: right;
+}
+
+.page-slide-show{
+    margin-top: 95px;
+    margin-bottom: 30px;
+}
+
+.page-slide-image{
+    float: left;
+    width: 870px;
+    margin-right: 30px;
+    margin-bottom: 57px;
+}
+
+.main-image-container{
+    margin-bottom: 30px;
+}
+
+ .three-rectangle-2 .rectangle-container-2{
+    /* display: inline; */
+    margin: 0 auto;
+    width: 200px;
+}
+
+.three-rectangle-2 .grey1{
+    float: left;
+}
+
+.three-rectangle-2 .two-rectangle-2{
+    float: right;
+    width: 130px;
+}
+
+.three-rectangle-2 .red1{
+    float: left;
+}
+
+.three-rectangle-2 .grey2{
+    float: right;
+}
+
+
+
+.side-content{
+    float: right;
+    width: 270px;
+}
+
+.page-slide-show .three-rectangle{
+    margin-top: 32px;
+
+}
+
+.page-slide-show .three-rectangle .rectangle-container{
+    /* display: inline; */
+    margin: 0 auto;
+    width: 110px;
+}
+
+.page-slide-show .grey-1{
+    float: left;
+}
+
+.page-slide-show .two-rectangle{
+    float: right;
+    width: 70px;
+}
+
+.page-slide-show .red{
+    float: left;
+}
+
+.page-slide-show .grey-2{
+    float: right;
+}
+
+.page-slide-show .three-rectangle{
+    margin-bottom: 88px;
+}
+
+.sidebar-gallery .gallery-contents ul li{
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.gallery-contents{
+    margin-top: 28px;
+}
+  .image-container-1,  .image-container-2,  .image-container-4,  .image-container-5 {
+ margin-right: 30px;
+}
+
+
+.images{
+    float: left;
+    padding-left: 28px;
+}
+
+.images:first-child{
+    padding-left: 0px;
+}
+
+.list-content{
+    position: relative;
+}
+
+.images .image-container-list{
+    position: relative;
+}
+
+.accordion-title-container{
+  margin-top: 107px
+}
+
+.accordion-title-container ul li{
+    padding-top: 7px;
+}
+
+.accordion-title-container ul li:first-child{
+    padding-top: 0px;
+}
+/* .title-container{
+    display: inline;
+} */
+
+.main-section-list{
+    float: left;
+    width: 869px;
+    background: url(../images/accordion-title-bg.png) repeat-x top left;
+}
+
+.expanded-section-list{
+    float: left;
+    width: 869px;
+    background: url(../images/expanded-list-bg.png) repeat-x top left;
+    padding-bottom: 8px;
+}
+
+.main-section-list .list-title-holder, .expanded-section-list .list-title-holder{
+    padding-top: 18px;
+    padding-bottom: 23px;
+    float: left;
+    width: 804px;
+}
+
+ 
+
+.main-section-list .circle-container, .expanded-section-list .circle-container{
+    float:right;
+    padding: 18px 0;
+}
+
+.expanded-section-list .paragraph, .expanded-section-list-2 .paragraph{
+    padding-top: 28px;
+}
+
+.side-section-list{
+    float: right;
+    width: 270px;
+    background: url(../images/accordion-title-bg.png) repeat-x top left;
+}
+
+.expanded-section-list-2{
+    float: right;
+    width: 270px;
+    background: url(../images/expanded-list-bg.png) repeat-x top left;
+    padding-bottom: 8px;
+}
+
+
+.side-section-list .list-title-holder{
+    padding-top: 18px;
+    padding-bottom: 23px;
+    float: left;
+    width: 209px;
+}
+
+.expanded-section-list-2 .list-title-holder{
+    padding-top: 18px;
+    padding-bottom: 23px;
+    float: left;
+    width: 209px;
+}
+
+
+.side-section-list .circle-container{
+    float:right;
+    padding: 18px 0;
+}
+
+
+.expanded-section-list-2 .circle-container{
+    float:right;
+    padding: 18px 0;
+}
+
+.tab-container {
+    padding-top: 47px;
+}
+
+.tab-container .left-container, .image-text-left-container{
+    float: left;
+    width: 868px;
+}
+
+.tab-container .right-container, .image-text-right-container{
+    float: right;
+    width: 269px;
+}
+
+
+.tab-container .left-container .tab-list{
+    float: left;
+    
+}
+
+.tab-container .left-container .first-tab{
+    float: left;
+    width: 129px;
+    margin-right: 7px;
+}
+
+.tab-container .left-container .tab-list-2{
+    float: right;
+    width: 401;
+}
+
+.tab-container .left-container .second-tab{
+    float: left;
+    width: 129px;
+    margin-right: 7px;
+}
+
+.tab-container .left-container .tab-list-3{
+    float: right;
+    width: 265px;
+}
+
+.tab-container .left-container .third-tab{
+    float: left;
+    width: 129px;
+    margin-right: 7px;
+
+}
+
+.tab-container .left-container .fourth-tab{
+    float: right;
+    width: 129px;
+}
+
+.text-content{
+    float:left;
+    width: 600px;
+}
+
+.image-content{
+    float: right;
+}
+
+.image-text-left-container{
+    padding-bottom: 48px;
+    margin-bottom: 27px;
+}
+
+.image-text-wrapper{
+    margin-top: 33px;
+    margin-left: 22px;
+    margin-right: 31px;
+    
+}
+
+.portfolio-images{
+    float: left;
+    padding-left: 28px;
+}
+
+.portfolio-images:first-child{
+    padding-left: 0px;
+}
+
+.portfolio-image-container-list{
+    position: relative;
+}
+
+.hidden-content{
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.portfolio-image-container-list:hover .hidden-content{
+    display: block;
+}
+
+.images-2col{
+    margin-top: 110px;
+    margin-left: 90px;
+    width: 90px;
+    padding-bottom: 100px;
+}
+
+.left-image{
+    float: left;
+    margin-right: 10px;
+}
+
+.right-image{
+    float: right;
+}
+
+.portfolio-images .text{
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    line-height: 20px;
+    padding-bottom: 45px;
+}
+
+.headline-wrapper{
+    margin-top: 42px;
+}
+
+.headline-container .headline{
+    float: left;
+    width: 829px;
+    margin-left: 28px;
+    margin-top: 30px;
+    
+}
+
+.headline-container .view-more{
+    float: right;
+    width: 200px;
+    margin-right: 35px;
+    margin-top: 24px;
+    background: url(../images/view-more-bg.png) repeat-x left top;
+}
+
+
+.footer-top-gap {
+    padding-top: 45px;
+    padding-bottom: 57px;
+}
+
+.footer .footer-left-gap {
+    padding-left: 3px;
+}
+
+.footer .logo {
+    padding-left: 3px;
+    padding-bottom: 27px;
+}
+
+.footer .side-content-left {
+    display: inline-block;
+    width: 363px;
+}
+
+.footer .phone-email {
+    padding-top: 32px;
+}
+
+.footer .phone-email div {
+    padding-bottom: 15px;
+}
+
+.footer .phone-email div:last-child {
+    padding-bottom: 0px;
+}
+
+.footer .mid-content {
+    
+    padding-left: 37px;
+}
+
+.footer div.footer-mid-content {
+    padding-right: 87px;
+}
+
+.footer div.footer-mid-content:last-child {
+    padding-right: 0px;
+}
+
+.footer .footer-mid-content div.bottom {
+    padding-left: 23px;
+}
+
+.footer .right-side-gap {
+    padding-right: 82px;
+}
+
+.footer .heading-gap {
+    padding-bottom: 24px;
+}
+
+.footer .side-content-right .text-date .text{
+    width: 243px;   
+}
+
+.footer .side-content-right .text-date .text a {
+    color: #cfe9e7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.footer .side-content-right .text-date .bottom {
+    color: #62a8a2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding-top: 9px;
+}
+
+.footer .side-content-right .bottom img {
+    padding-right: 18px;
+}
+
+.footer .side-content-right .footer-image-gap {
+    padding-bottom: 20px;
+}
+
+.footer .footer-bottom .copyright div {
+    padding-left: 3px;
+}
+
+.footer .social-share-icons div.left {
+    padding-left: 40px;
+    padding-top: 13px;
+}
+
+.footer .social-share-icons div.left:first {
+    padding-left: 0px;
+}
+
