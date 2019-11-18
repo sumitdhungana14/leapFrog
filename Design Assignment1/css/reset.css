@@ -4,3 +4,11 @@
     list-style: none;
     font-family: arial;
 }
+.clearfix-1:before, .clearfix-1:after{
+	content: " ";
+	display: table;
+}
+
+.clearfix-1:after{
+	clear: both;
+}

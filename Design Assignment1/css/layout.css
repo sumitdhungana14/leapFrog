@@ -210,3 +210,98 @@
 .footer-lower .right{
     float:right;
 }
+
+.footer-top-gap {
+    padding-top: 45px;
+    padding-bottom: 57px;
+}
+
+.footer .footer-left-gap {
+    padding-left: 3px;
+}
+
+.footer .logo {
+    padding-left: 3px;
+    padding-bottom: 27px;
+}
+
+.footer .side-content-left {
+    display: inline-block;
+    width: 363px;
+}
+
+.footer .phone-email {
+    padding-top: 32px;
+}
+
+.footer .phone-email div {
+    padding-bottom: 15px;
+}
+
+.footer .phone-email div:last-child {
+    padding-bottom: 0px;
+}
+
+.footer .mid-content {
+    
+    padding-left: 37px;
+}
+
+.footer div.footer-mid-content {
+    padding-right: 87px;
+}
+
+.footer div.footer-mid-content:last-child {
+    padding-right: 0px;
+}
+
+.footer .footer-mid-content div.bottom {
+    padding-left: 23px;
+}
+
+.footer .right-side-gap {
+    padding-right: 82px;
+}
+
+.footer .heading-gap {
+    padding-bottom: 24px;
+}
+
+.footer .side-content-right .text-date .text{
+    width: 243px;   
+}
+
+.footer .side-content-right .text-date .text a {
+    color: #cfe9e7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.footer .side-content-right .text-date .bottom {
+    color: #62a8a2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding-top: 9px;
+}
+
+.footer .side-content-right .bottom img {
+    padding-right: 18px;
+}
+
+.footer .side-content-right .footer-image-gap {
+    padding-bottom: 20px;
+}
+
+.footer .footer-bottom .copyright div {
+    padding-left: 3px;
+}
+
+.footer .social-share-icons div.left {
+    padding-left: 40px;
+    padding-top: 13px;
+}
+
+.footer .social-share-icons div.left:first {
+    padding-left: 0px;
+}
+

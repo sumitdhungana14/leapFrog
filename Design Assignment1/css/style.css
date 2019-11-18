@@ -263,7 +263,7 @@
     bottom: -25px;
     left: 37px;
     text-decoration: none;
-    background: url(../img_coll/btn-top-shadow-hover.png) no-repeat top left red;
+    background: url(../img_coll/btn-top-shadow-hover.png) no-repeat top left #e9645b;
     text-align: center;
     display: none;
     z-index: 5;
@@ -306,9 +306,93 @@
     padding-right: 0px;
 }
 
+a {
+    text-decoration: none;
+}
+
+.footer .left {
+    float: left;
+}
+
+.footer .right {
+    float: right;
+}
+
 .footer-lower span {
     line-height: 50px;
     color: #ffffff;
     font-size: 13px;
 }
 
+.footer {
+    background: url(../images/footer-bg-image.png) repeat-x;
+   
+}
+
+.footer .footer-top-gap .side-content-left .top .bottom p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: justify;
+    line-height: 23px;
+    color: #f5fbfa;    
+}
+
+.footer .phone-email h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+    line-height: 14px;
+    vertical-align: middle;
+    color: #f5fbfa;
+}
+
+.footer .phone-email p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    line-height: 14px;
+    color: #f5fbfa;
+    padding-bottom: 2px;
+    padding-left: 21px;
+}
+
+.footer .footer-mid-content h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #5a9c98;
+    padding-bottom: 31px;
+
+}
+
+.footer ul.footer-list-style-image li {
+    list-style-image: url(../images/footer-list-image.png);
+    line-height: 10px;
+    padding-bottom: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.footer ul.footer-list-style-image li:last-child {
+    padding-block: 0px;
+} 
+
+.footer ul.footer-list-style-image li a{
+    color: #f5fbfa;
+}
+
+.footer .side-content-right h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    color: #f5fbfa;
+}
+
+.footer .footer-bottom {
+    background-color: #6bb4ad;
+    line-height: 44px;
+}
+
+.footer .footer-bottom .copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #c6e8e5;
+} 
