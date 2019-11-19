@@ -1,0 +1,100 @@
+
+.wrapper{
+    width: 100%;
+    margin: 0px auto;
+    
+}
+
+.header ul li{
+    display: none;
+    
+}
+
+.main-container{
+    width: 100%;
+    text-align: center;
+}
+
+.upper-container, .lower-container{
+    width: 100%;
+}
+
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.header{
+    padding: 20px 0;
+}
+
+.header .logo-social{
+    width: 52.941%
+}
+
+.header .social-icon-holder{
+    width: 33.33%;
+}
+
+.header ul li a{
+    display: inline-block;
+
+}
+
+.upper-container .header .burger-logo-holder{
+    padding-left: 7px;
+}
+
+
+@media only screen and (min-width: 768px){
+   
+    .wrapper{
+        width: 48em;
+        margin: 0px auto;
+    }
+    
+    .header ul li{
+        display: inline;
+        padding: 0 3px;
+    
+    }
+
+    .upper-container .header .burger-logo-holder{
+        padding-left: 7px;
+    }
+    
+    
+}
+
+@media only screen and (min-width: 1280px){
+    .wrapper{
+        width: 95.625em;
+        margin: 0px auto;
+    }
+
+    .header ul li{
+        display: inline-block;
+        padding: 0px 17px;
+        /* border-style: solid; */
+
+    }
+
+    .upper-container{
+        background: url(../images/top-container-bg.png) repeat-x;
+        /* background-size: cover; */
+    }
+
+    .upper-container .header .burger-logo-holder{
+        padding-left: 0px;
+    }
+ 
+    
+}
+
+
+
+

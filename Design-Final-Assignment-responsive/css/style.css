@@ -1,0 +1,18 @@
+.clearfix {
+    overflow: auto;
+  }
+  
+  .clearfix::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+
+  .header{
+      background: #212429;
+  }
+
+  .upper-container .top-image img, .upper-container .logo-holder img{
+    width: 100%;
+    height: auto;
+  }
