@@ -60,6 +60,7 @@
     top: 56px;
     left: 0px;
     z-index: 50;
+    width: 100%;
 }
 
 .burger-logo-holder .main-menu-phone a:hover {
@@ -350,6 +351,14 @@
     margin-bottom: 10px;
 }
 
+.quote-container-1{
+    position: relative;
+    width: 100%;
+    background: #131d1c;
+    /* padding-bottom: 10px; */
+    margin-bottom: 10px;
+}
+
 
 .quote{
     margin: 0 auto;
@@ -365,6 +374,13 @@
     font-size: 12px;
 }
 
+.quote-container-1 p{
+    display: block;
+    font-style: 'Hind';
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+}
 .quote-image{
     background: white;
     position: absolute;
@@ -390,6 +406,22 @@
 .bg-white{
     height: 10px;
     background: #f9f9f9;
+}
+
+.quote-container a{
+    text-decoration: none;
+    color: white;
+    font-style: 'Hind';
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.quote-container-1 a{
+    text-decoration: none;
+    color: white;
+    font-style: 'Hind';
+    text-transform: uppercase;
+    font-size: 10px;
 }
 
 
@@ -618,6 +650,13 @@
             line-height: 25px;
     }
 
+    .quote-container-1 p{
+        font-size: 15px;
+
+        line-height: 25px;
+}
+
+
     .quote-image .fa-quote-left{
         font-size: 20px;
     }
@@ -643,6 +682,17 @@
     .lower-content-wrapper{
         margin-top: 35px;
     }
+
+    .quote-container-1{
+        
+        margin-bottom: 25px;
+    }
+
+    .quote-container-1 .link{
+        margin-top: 10px;
+    }
+
+
 }
     
     
@@ -930,10 +980,22 @@
         margin-bottom: 0px;
 }
 
+.quote-container-1 p{
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 0px;
+}
+
 .quote-container{
     padding-bottom: 60px;
     margin-bottom: 40px;
 }
+
+.quote-container-1{
+    /* padding-bottom: 60px; */
+    margin-bottom: 40px;
+}
+
 
 .body-build-image-container iframe{
     width: 100%;
