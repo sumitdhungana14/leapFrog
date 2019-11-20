@@ -140,9 +140,13 @@
 }
 
 
+.email-input{
+    margin-bottom: 12px;
+}
+
 
 .lower-container .signup-newsletter .name-input input, .lower-container .signup-newsletter .email-input input{
-    width: 300px;
+    width: 100%;
     padding-top: 12px;
     padding-bottom: 6px;
     padding-left: 29px;
@@ -489,6 +493,9 @@
         letter-spacing: 3.8px;
     }
     
+    .email-input{
+        margin-bottom: 30px;
+    }
 
     .top-arrow{
         top: 65px;
@@ -511,7 +518,7 @@
     }
 
     .lower-container .signup-newsletter .name-input input, .lower-container .signup-newsletter .email-input input{
-        width: 449px;
+        width: 80%;
         padding-top: 22px;
         padding-bottom: 18px;
         padding-left: 29px;
@@ -807,10 +814,38 @@
     }
 
     .lower-container .signup-newsletter .name-input input, .lower-container .signup-newsletter .email-input input{
-        width: 310px;
+        width: 100%;
         padding-top: 22px;
         padding-bottom: 18px;
-        padding-left: 20px;
+        /* padding-left: 20px; */
+    }
+
+    .signup-header{
+        float: left;
+    }
+
+    .name-email-button{
+        float: right;
+        width: 81.0457%;
+    }
+
+    .name-input{
+        float: left;
+        width: 34%
+    }
+
+    .email-button{
+        float: right;
+        width: 61.4516%;
+    }
+
+    .email-input{
+        float: left;
+        width: 49%;
+    }
+
+    .subscribe-button{
+        float: right;
     }
 
     .signup-newsletter>div>*{
