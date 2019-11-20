@@ -1,6 +1,6 @@
-.clearfix {
+/* .clearfix {
     overflow: auto;
-  }
+  } */
   
   .clearfix::after {
     content: '';
@@ -12,7 +12,22 @@
       background: #212429;
   }
 
+  .main-container{
+    background: #f7f7f7;
+  }
+
+
+
   .upper-container .top-image img, .upper-container .logo-holder img{
     width: 100%;
     height: auto;
+    z-index: 4;
   }
+
+  .no-border {
+    /* -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc; */
+  border-width:0px;
+border:none;
+ }

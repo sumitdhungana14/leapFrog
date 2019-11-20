@@ -5,10 +5,12 @@
     
 }
 
-.header ul li{
+.header .social-icon-holder{
     display: none;
     
 }
+
+
 
 .main-container{
     width: 100%;
@@ -19,6 +21,55 @@
     width: 100%;
 }
 
+.header{
+    position: relative;
+}
+
+.burger-logo-holder li{
+    list-style: none;
+    /* float: left; */
+    /* padding-right: 16px; */
+    padding: 3px 146px;
+    display: none;
+}
+
+.burger-logo-holder:hover li{
+    float: none;
+    display: block;
+} 
+
+.burger-logo-holder ul{
+    background-color: rgba(55, 55, 55, 0.9);
+    display: block;
+}
+
+.burger-logo-holder ul li a{
+    text-decoration: none;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Montserrat';
+    color: white;
+    text-transform: uppercase;
+    padding: 2px 0;
+    cursor: pointer;
+}
+
+.main-menu-phone{
+    position: absolute;
+    top: 56px;
+    left: 0px;
+    z-index: 50;
+}
+
+.burger-logo-holder .main-menu-phone a:hover {
+   color: red;
+  }
+  
+  .burger-logo-holder a.active {
+    color: red;
+  }
+  
 
 .left{
     float: left;
@@ -26,6 +77,11 @@
 
 .right{
     float: right;
+}
+
+.upper-container .logo-holder{
+    float: right;
+    padding-right: 5px;
 }
 
 .header{
@@ -40,14 +96,135 @@
     width: 33.33%;
 }
 
-.header ul li a{
+.header .social-icon-holder ul li a{
     display: inline-block;
 
+}
+
+.header .social-icon-holder-phone ul li {
+    display: inline;
+    margin-left: 5px;
+}
+
+.social-icon-holder-phone{
+    margin-top: 10px;
 }
 
 .upper-container .header .burger-logo-holder{
     padding-left: 7px;
 }
+
+.top-image{
+    position: relative;
+}
+
+.top-arrow, .down-arrow, .small-text, .large-text{
+    display: none;
+}
+
+.lower-container .signup-newsletter{
+    padding: 30px 0;
+}
+
+.lower-container .signup-newsletter .signup-header{
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Montserrat';
+}
+
+.signup-newsletter>div>*{
+    margin-bottom: 12px;
+    
+}
+
+
+
+.lower-container .signup-newsletter .name-input input, .lower-container .signup-newsletter .email-input input{
+    width: 300px;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    padding-left: 29px;
+}
+
+.signup-newsletter a{
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Montserrat';
+    text-decoration: none;
+    background: #212121;
+    padding: 5px;
+    color: white;
+}
+
+.subscribe-button a:hover{
+    color: red;
+}
+
+.left-col{
+    width: 100%;
+    margin-top: 5px; 
+}
+
+.body-build-image-container{
+    position: relative;
+}
+
+.left-col img{
+    width: 100%;
+    height: auto;
+}
+
+.pin-image-holder{
+    position: absolute;
+    top: 0;
+    right:0;
+    /* height: 20px;
+    width: 20px; */
+}
+
+.image-icon-holder{
+    position: absolute;
+    left: 48%;
+    bottom: -9px;
+}
+
+.absolute-image{
+    height: 20px;
+    width: 20px;
+}
+
+.pin-image-holder img, .image-icon-holder img{
+    width: 100%;
+    height: 100%;
+}
+
+.travel-block-container{
+    margin-top: 25px;
+    margin-bottom: 5px;
+
+}
+
+ .upper-text{
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #999999;
+}
+
+.title-content{
+    /* text-align: left; */
+    font-family: 'Montserrat';
+    color: black;
+    font-size: 12px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+
 
 
 @media only screen and (min-width: 768px){
@@ -56,7 +233,14 @@
         width: 48em;
         margin: 0px auto;
     }
+
+    .header .social-icon-holder{
+        display: block;
+    }
     
+    .social-icon-holder-phone{
+        display: none;
+    }
     .header ul li{
         display: inline;
         padding: 0 3px;
@@ -67,10 +251,168 @@
         padding-left: 7px;
     }
     
+    .upper-container .header .logo-holder{
+        float: left;
+        padding-right: 0;
+    }
+
+    .top-arrow, .down-arrow{
+        position: absolute;
+        right: 18px;
+        display: block;
+    }
+
+    .small-text , .large-text{
+        position: absolute;
+        display: block;
+        left: 60px; 
+    }
+
+    .small-text{
+        top: 90px;
+        color: white;
+        font: 16px;
+        color: white;
+        line-height: 15px;
+        font-size: 14px;
+        font-family: 'Hind';
+    }
+
+    .large-text{
+        top: 120px;
+        color: white;
+        font-size: 18px;
+        font-family: 'Hind';
+        line-height: 25px;
+        text-transform: uppercase;
+        width: 30.7189%;
+        text-align: left;
+        font-weight: bold ;
+        letter-spacing: 3.8px;
+    }
+    
+
+    .top-arrow{
+        top: 65px;
+    }
+
+    .down-arrow{
+        top: 200px;
+    }
+
+    .lower-container .signup-newsletter .signup-header{
+        line-height: 20px;
+        font-size: 20px;
+       
+        font-family: 'Montserrat';
+    }
+
+    .signup-newsletter>div>*{
+        margin-bottom: 25px;
+        
+    }
+
+    .lower-container .signup-newsletter .name-input input, .lower-container .signup-newsletter .email-input input{
+        width: 449px;
+        padding-top: 22px;
+        padding-bottom: 18px;
+        padding-left: 29px;
+    }
+
+    .signup-newsletter .subscribe-button{
+        margin-top: 16px;
+    }
+
+    .signup-newsletter a{
+        line-height: 20px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Montserrat';
+        text-decoration: none;
+        background: #212121;
+        padding: 14px 60px;
+    }
+
+    .left-col{
+        width: 74.5098%;
+        margin-top: 50px; 
+    }
+    
+
+    .pin-image-holder{
+        position: absolute;
+        top: 0;
+        right:0;
+     
+    }
+
+    .absolute-image{
+        height: 38px; 
+        width: 45px;
+    }
+
+    .image-icon-holder{
+        bottom: -18px;
+    }
+    
+    .travel-block-container{
+        margin-top: 35px;
+        margin-bottom: 20px;
+       
+    }
+    
+    .travel-block-container .upper-text{
+
+        font-size: 16px;
+        
+    }
+
+    .title-content{
+        /* text-align: left; */
+        font-family: 'Montserrat';
+        color: black;
+        font-size: 14px;
+        margin: 0 auto;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .burger-logo-holder ul{
+        background-color: rgba(55, 55, 55, 0);
+        display: block;
+    }
+
+    .main-menu-phone{
+        margin-top: 22px;
+        /* margin-right:  */
+    }
+
+    .burger-logo-holder img{
+        display: none;
+    }
+
+    .burger-logo-holder:hover li{
+        float: none;
+        display: inline;
+    } 
+
+
     
 }
+    
+    
+
 
 @media only screen and (min-width: 1280px){
+
+    .main-container{
+        width: 1638px;
+        text-align: center;
+    }
+    
+    .upper-container, .lower-container{
+        width: 1638px;
+    }
     .wrapper{
         width: 95.625em;
         margin: 0px auto;
@@ -90,9 +432,164 @@
 
     .upper-container .header .burger-logo-holder{
         padding-left: 0px;
-    }
- 
+        }
     
+    .upper-container .header .logo-holder{
+        float: left;
+        padding-right: 5px;
+    
+     }
+
+     .top-arrow, .down-arrow{
+         right: 43px;
+     }
+
+     .top-arrow{
+         top: 161px;
+     }
+
+     .down-arrow{
+         top: 390px;
+     }
+
+     .small-text{
+        left: 120px;
+        top: 230px;
+        color: white;
+        font: 18px;
+        color: white;
+        line-height: 15px;
+        font-size: 14px;
+        font-family: 'Hind';
+    }
+
+    .large-text{
+        left: 120px;
+        top: 260px;
+        color: white;
+        font-size: 40px;
+        font-family: 'Hind';
+        line-height: 52px;
+        text-transform: uppercase;
+        width: 30.7189%;
+        text-align: left;
+        font-weight: bold ;
+        letter-spacing: 5.3px;
+
+    }
+
+    .lower-container .signup-newsletter{
+        width: 95.9477%;
+        margin-left: 30px;
+        margin-right: 32px;
+     }
+
+     .signup-header, .name-input, .email-input, .subscribe-button{
+         float: left;
+     } 
+
+     .signup-header{
+         margin-right: 56px;
+     }
+
+     .name-input{
+         margin-right: 28px;
+     }
+
+     .email-input{
+         margin-right: 32px;
+     }
+
+     .lower-container .signup-newsletter .signup-header{
+        line-height: 28px;
+        font-size: 20px;
+        width: 146px;
+        font-family: 'Montserrat';
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .lower-container .signup-newsletter .name-input input, .lower-container .signup-newsletter .email-input input{
+        width: 449px;
+        padding-top: 22px;
+        padding-bottom: 18px;
+        padding-left: 29px;
+    }
+
+    .signup-newsletter>div>*{
+        margin-bottom: 25px;
+        
+    }
+
+    .signup-newsletter .subscribe-button{
+        margin-top: 16px;
+    }
+
+    .signup-newsletter a{
+        line-height: 20px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Montserrat';
+        text-decoration: none;
+        background: #212121;
+        padding: 14px 60px;
+    }
+
+    .left-col{
+        width: 74.5098%;
+        margin-top: 80px; 
+    }
+
+    .pin-image-holder{
+        position: absolute;
+        top: 0;
+        right:0;
+
+    }
+    
+    .absolute-image{
+        height: 44px;
+        width: 52px;
+    }
+
+    .image-icon-holder{
+        bottom: -18px;
+        left: 46.5%;
+
+    }
+    
+    .travel-block-container{
+        margin-top: 67px;
+        /* text-align: left; */
+        margin-bottom: 30px;
+    }
+    
+    .travel-block-container .upper-text{
+        /* margin-left: 44%; */
+        font-size: 16px;
+
+    }
+
+    .title-content{
+        /* text-align: left; */
+        font-family: 'Montserrat';
+        color: black;
+        font-size: 18px;
+        /* margin-left: 360px; */
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .burger-logo-holder ul{
+         background-color: rgba(55, 55, 55, 0); 
+        display: block;
+    }
+
+    .burger-logo-holder img{
+        display: none;
+    }
+
+ 
 }
 
 
