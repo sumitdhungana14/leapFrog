@@ -514,6 +514,10 @@
     padding-bottom: 1px; 
 }
 
+.footer-upper-desktop{
+    display: none;
+}
+
 
 
 @media only screen and (min-width: 768px){
