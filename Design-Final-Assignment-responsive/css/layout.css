@@ -901,6 +901,12 @@ hr{
     color: grey;
 }
 
+.upper-container{
+    background: url(../images/top-container-bg.png) repeat-x;
+    /* background-size: cover; */
+}
+
+
 }
     
     
