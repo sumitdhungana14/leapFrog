@@ -804,6 +804,7 @@
 
    .footer-upper-desktop{
        background: #212429;
+       display: block;
    }
 
    .footer-upper-desktop .footer-container{
