@@ -530,6 +530,14 @@
     display: none;
 }
 
+.social-icon-holder-phone a{
+    color:white;
+}
+
+.social-icon-holder-phone a:hover{
+    color:grey;
+}
+
 
 
 @media only screen and (min-width: 768px){
