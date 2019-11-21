@@ -798,6 +798,83 @@
        display: none;
    }
 
+   .footer-upper-desktop{
+       background: #212429;
+   }
+
+   .footer-upper-desktop .footer-container{
+       padding-top: 20px;
+       padding-bottom: 20px;
+   }
+
+   .footer-upper-desktop {
+       color: white;
+   }
+
+   .about-blog{
+       width: 23.529%;
+       margin-right: 15px;
+   }
+
+   .footer-container h3, p{
+       font-size: 13px;
+       font-family: 'Hind';
+       
+   }
+
+   .footer-container h3{
+    text-transform: uppercase;
+    margin-bottom: 25px;
+   }
+
+   .about-blog img{
+       margin-top: 8px;
+       width: 100%;
+       height: auto;
+   }
+
+   .tweet-insta-comment{
+       width: 74%
+   }
+
+   .tweet-desktop{
+       width: 31.5789%;
+       margin-right: 15px;
+   }
+
+   .insta-comment{
+       width: 65%;
+   }
+
+   .instagram-desktop{
+       width: 48%;
+       margin-right: 15px;
+   }
+
+   .instagram-photo-list ul li{
+       margin-left: 
+   }
+
+   .comment-desktop{
+       width: 46%;
+   }
+
+   .comments p{
+       margin-top: 8px;
+   }
+
+   .comment-list{
+    margin-left: 0px;
+}
+
+.tweet-list{
+    margin-left: 0px;
+}
+
+hr{
+    border-top: 1px solid #65676a;
+    margin-bottom: 15px;
+}
 
 }
     
@@ -1150,6 +1227,39 @@
 .lower-content-wrapper{
     margin-top: 35px;
 }
+
+.about-blog{
+    width: 23.529%;
+    margin-right: 25px;
+}
+
+.tweet-insta-comment{
+    width: 74%
+}
+
+.tweet-desktop{
+    width: 31.5789%;
+    margin-right: 25px;
+}
+
+.insta-comment{
+    width: 65%;
+}
+
+.instagram-desktop{
+    width: 48%;
+    margin-right: 25px;
+}
+
+.comment-desktop{
+    width: 46%;
+}
+
+.comments p{
+    margin-top: 10px;
+}
+
+
 
 
 }
