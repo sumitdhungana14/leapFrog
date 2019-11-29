@@ -1,0 +1,21 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.box {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    background: grey;
+    border: 5px black solid;
+}
+
+.box-wrapper {
+    margin-left: 300px;
+}
+
+.box-wrapper-1 {
+    margin-left: 300px;
+    margin-top: 20px;
+}
