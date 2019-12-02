@@ -2,9 +2,10 @@ const IMG_SIZE = 500;
 
 function createWrapper(wrapper) {
     this.element = wrapper;
-    this.element.style.width = ((wrapper.children.length + 1) * IMG_SIZE) + 'px';
+    this.element.style.width = ((wrapper.children.length) * IMG_SIZE) + 'px';
     this.element.style.float = 'left';
     this.element.style.marginLeft = '0';
+    console.log(wrapper.children);
 }
 
 function createArrowButton(flag) {
@@ -206,5 +207,6 @@ var carousels = Array.from(document.getElementsByClassName('carousel-container')
 
 carousels.forEach(function(carousel, index) {
     var carouselObject = new Carousel(1000, 2000, carousel);
+    console.log(carousel);
     carouselObject.init();
 })
