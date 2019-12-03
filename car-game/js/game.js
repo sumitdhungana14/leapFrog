@@ -37,7 +37,7 @@ function Game(parent) {
     this.gameOverMessage.style.left = '220px';
     this.gameOverMessage.style.display = 'none';
     this.gameOverMessage.innerHTML = 'Game over!';
-    this.currentScore.style.color = '#267336';
+    this.gameOverMessage.style.color = '#267336';
 
 
     this.highScoreMessage = this.currentScore.cloneNode();
@@ -46,6 +46,20 @@ function Game(parent) {
     this.highScoreMessage.style.left = '220px';
     this.highScoreMessage.style.display = 'none';
 
+
+    this.playAgainButton = document.createElement('button');
+    this.playAgainButton.innerHTML = 'Play again! ';
+    this.playAgainButton.style.position = 'absolute';
+    this.playAgainButton.style.top = '370px';
+    this.playAgainButton.style.left = '225px';
+    this.playAgainButton.style.color = 'grey';
+    this.playAgainButton.style.padding = '10px 5px';
+    this.playAgainButton.style.textTransform = 'uppercase';
+    this.playAgainButton.style.marginTop = '20px';
+    this.playAgainButton.onclick = function() {
+        location.reload('true');
+    };
+    this.playAgainButton.style.display = 'none';
 
     this.bulletCount = this.currentScore.cloneNode();
     this.bulletCount.style.position = 'absolute';
@@ -57,6 +71,7 @@ function Game(parent) {
     this.element.appendChild(this.currentScore);
     this.element.appendChild(this.bulletCount);
     this.element.appendChild(this.highScoreMessage);
+    this.element.appendChild(this.playAgainButton);
     this.parent.appendChild(this.element);
 
     this.moveEnemies = function() {
@@ -122,7 +137,6 @@ function Game(parent) {
                 gunda.yPos + CAR_HEIGHT > self.hero.yPos) {
 
                 self.gameOver = true;
-                // console.log('collision');
             }
         });
 
@@ -136,13 +150,14 @@ function Game(parent) {
             };
 
             this.gameOverMessage.style.display = 'block';
+            this.playAgainButton.style.display = 'block';
 
             if (this.newHighScore) {
                 this.highScoreMessage.style.display = 'block';
                 this.highScoreMessage.innerHTML = 'New High Score:   ' + this.score;
             }
 
-            setTimeout('location.reload(true);', 2000);
+            // setTimeout('location.reload(true);', 2000);
 
         }
     }

@@ -15,7 +15,7 @@ function startGame() {
     playButton.style.padding = '10px 5px';
     playButton.style.textTransform = 'uppercase';
     playButton.style.marginTop = '20px';
-    // playButton.style.textDecorationColor = 'white';
+
 
     var highScore = localStorage.getItem('score') || 0;
 
@@ -39,8 +39,8 @@ function startGame() {
         welcomeMessage.style.display = 'none';
         carContainer.style.display = 'none';
 
-        var game = new Game(mainContainer);
-        game.init();
+        var player = new Game(mainContainer);
+        player.init();
     };
 
 }
