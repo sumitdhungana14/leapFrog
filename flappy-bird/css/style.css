@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.main-container {
+    display: inline-block;
+}
+
+canvas {
+    margin: 10px;
+}
