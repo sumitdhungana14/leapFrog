@@ -1,11 +1,6 @@
 class Chart {
-    constructor(width, height, dataSource) {
-        this.setDataSource(dataSource);
+    constructor(width, height) {
         this.initCanvas(width, height);
-    }
-
-    setDataSource(dataSource) {
-        this._dataSource = dataSource;
     }
 
     initCanvas(width, height) {
