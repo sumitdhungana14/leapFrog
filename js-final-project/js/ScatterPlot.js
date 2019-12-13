@@ -1,8 +1,5 @@
-import Chart from './Chart.js';
-
-class ScatterPlot extends Chart {
+class ScatterPlot {
     constructor(width, height, dataSource) {
-        super(width, height);
 
         this.xPoints = [];
         this.yPoints = [];
@@ -23,12 +20,14 @@ class ScatterPlot extends Chart {
 
         this._color = ['red', 'blue', 'green', 'purple', 'black', 'yellow', 'pink'];
 
+        this.initCanvas(width, height);
         this.setDataSource(dataSource);
 
         this.getPoints(dataSource);
         this.setScale();
         this.drawAxes();
         this.drawAxisLabels();
+
         this.draw(dataSource);
 
         this.showInfoOnHover();
@@ -36,6 +35,24 @@ class ScatterPlot extends Chart {
 
         this.checkClickOnRandomize();
 
+        this.render();
+
+    }
+
+
+    initCanvas(width, height) {
+        this._canvas = document.createElement('canvas');
+        this._context = this._canvas.getContext('2d');
+        this._canvas.width = width;
+        this._canvas.height = height;
+    }
+
+    getCanvasElement() {
+        return this._canvas;
+    }
+
+    getColor() {
+        return this._color[Math.floor(Math.random() * 7)];
     }
 
     setDataSource(dataSource) {
@@ -44,27 +61,11 @@ class ScatterPlot extends Chart {
 
 
     getMousePosition(event) {
-        var rect = canvas.getBoundingClientRect();
+        var rect = this.getCanvasElement().getBoundingClientRect();
         return {
             x: event.clientX - rect.left,
             y: event.clientY - rect.top
         };
-    }
-
-    mouseIsInsideRandomButton(mousePosition) {
-        return mousePosition.x > 225 && mousePosition.x < 225 + 100 && mousePosition.y < 475 + 20 && mousePosition.y > 475;
-    }
-
-    checkClickOnRandomize() {
-        this._canvas.addEventListener('click', event => {
-            var mousePosition = this.getMousePosition(event);
-
-            if (this.mouseIsInsideRandomButton(mousePosition)) {
-                this.generateRandomPoints();
-            }
-        })
-
-
     }
 
     getPoints(dataPoints) {
@@ -139,12 +140,7 @@ class ScatterPlot extends Chart {
         this._context.beginPath();
         this._context.moveTo(80, 80);
         this._context.arc(pointOnCanvasX, pointOnCanvasY, 2, 0, 2 * Math.PI);
-        this._context.fillStyle = 'black';
         this._context.fill();
-    }
-
-    getColor() {
-        return this._color[Math.floor(Math.random() * 7)];
     }
 
 
@@ -155,9 +151,6 @@ class ScatterPlot extends Chart {
     showInfoOnHover() {
         this._canvas.onmousemove = event => {
             var mousePosition = this.getMousePosition(event);
-            let pointsFound = false;
-            let currentX = Math.ceil(((event.clientX - this._canvas.getBoundingClientRect().left - 45) / this.scaleX));
-            let currentY = Math.ceil(this._canvas.height - (event.clientY - 55) / this.scaleY)
 
             this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
@@ -173,7 +166,6 @@ class ScatterPlot extends Chart {
                     this._context.stroke();
                     this._context.fillText('x: ' + this._dataSource[index].x, position.x + 20, position.y + 30);
                     this._context.fillText('y: ' + this._dataSource[index].y, position.x + 20, position.y + 50);
-                    // console.log('here');
                 }
             })
         }
@@ -187,6 +179,20 @@ class ScatterPlot extends Chart {
         this._context.stroke();
         this._context.fillText('Randomize', 248, 488);
 
+    }
+
+    checkClickOnRandomize() {
+        this._canvas.addEventListener('click', event => {
+            var mousePosition = this.getMousePosition(event);
+
+            if (this.mouseIsInsideRandomButton(mousePosition)) {
+                this.generateRandomPoints();
+            }
+        })
+    }
+
+    mouseIsInsideRandomButton(mousePosition) {
+        return mousePosition.x > 225 && mousePosition.x < 225 + 100 && mousePosition.y < 475 + 20 && mousePosition.y > 475;
     }
 
     generateRandomPoints() {
@@ -207,9 +213,10 @@ class ScatterPlot extends Chart {
         this.randomButton();
     }
 
+    render() {
+
+        var canvas = this.getCanvasElement();
+        document.body.appendChild(canvas);
+    }
+
 }
-
-
-var lineChart = new ScatterPlot(500, 500, [{ x: 500, y: 80 }, { x: 80, y: 500 }, { x: 1010, y: 100 }, { x: 200, y: 380 }, { x: 170, y: 450 }, { x: 300, y: 400 }]);
-var canvas = lineChart.getCanvasElement();
-document.body.appendChild(canvas);

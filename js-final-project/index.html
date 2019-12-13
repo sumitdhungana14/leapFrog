@@ -6,8 +6,45 @@
 
 <body>
 
-    <script type="module" src="js/ScatterPlot.js"></script>
-    <script type="module" src="js/PieChart.js"></script>
+    <script src="js/ScatterPlot.js"></script>
+    <script src="js/PieChart.js"></script>
+    <script>
+        // var lineChart = new ScatterPlot(500, 500, [{
+        //     x: 500,
+        //     y: 80
+        // }, {
+        //     x: 80,
+        //     y: 500
+        // }, {
+        //     x: 1010,
+        //     y: 100
+        // }, {
+        //     x: 200,
+        //     y: 380
+        // }, {
+        //     x: 170,
+        //     y: 450
+        // }, {
+        //     x: 300,
+        //     y: 400
+        // }]);
+
+        var pieChart = new PieChart(600, 600, [{
+            apple: 20
+        }, {
+            banana: 30
+        }, {
+            pipeapple: 80
+        }, {
+            grapes: 70
+        }, {
+            melon: 90
+        }, {
+            strawberry: 75
+        }, {
+            blueberry: 35
+        }]);
+    </script>
 </body>
 
 </html>
