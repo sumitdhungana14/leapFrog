@@ -108,6 +108,8 @@ class ScatterPlot {
             this._context.moveTo((this.offsetX / 2) - length, startY - i * stepY);
             this._context.lineTo(this.offsetX / 2, startY - i * stepY);
             this._context.stroke();
+            this._context.fillStyle = 'black';
+            this._context.font = '12px Arial';
             this._context.fillText(Math.ceil(i * scaleStep), (this.offsetX / 2) - 30, startY - i * stepY + 5)
         }
 
@@ -133,9 +135,7 @@ class ScatterPlot {
 
         if (this.positionOnCanvas.length < this._dataSource.length) {
             this.positionOnCanvas.push({ 'x': pointOnCanvasX, 'y': pointOnCanvasY });
-            console.log(this.positionOnCanvas);
         }
-
 
         this._context.beginPath();
         this._context.moveTo(80, 80);
@@ -161,23 +161,32 @@ class ScatterPlot {
 
             this.positionOnCanvas.forEach((position, index) => {
                 if (this.mouseIsOnPoint(position, mousePosition)) {
-                    this._context.beginPath();
-                    this._context.rect(position.x + 8, position.y + 8, 80, 50);
-                    this._context.stroke();
-                    this._context.fillText('x: ' + this._dataSource[index].x, position.x + 20, position.y + 30);
-                    this._context.fillText('y: ' + this._dataSource[index].y, position.x + 20, position.y + 50);
+                    this.showCord(position, mousePosition, index);
                 }
             })
         }
 
     }
 
+    showCord(position, mousePosition, index) {
+        this._context.beginPath();
+        this._context.fillStyle = 'grey';
+        this._context.rect(position.x + 8, position.y + 8, 80, 50);
+        this._context.stroke();
+        this._context.fill();
+        this._context.font = '15px Arial';
+        this._context.fillStyle = 'white';
+
+        this._context.fillText('x: ' + this._dataSource[index].x, position.x + 20, position.y + 30);
+        this._context.fillText('y: ' + this._dataSource[index].y, position.x + 20, position.y + 50);
+    }
+
     randomButton() {
 
         this._context.beginPath();
-        this._context.rect(225, 475, 100, 20);
+        this._context.rect((this._canvas.width / 2) - 50, this._canvas.height - 20, 100, 20);
         this._context.stroke();
-        this._context.fillText('Randomize', 248, 488);
+        this._context.fillText('Randomize', (this._canvas.width / 2) - 30, this._canvas.height - 8);
 
     }
 
@@ -192,7 +201,7 @@ class ScatterPlot {
     }
 
     mouseIsInsideRandomButton(mousePosition) {
-        return mousePosition.x > 225 && mousePosition.x < 225 + 100 && mousePosition.y < 475 + 20 && mousePosition.y > 475;
+        return mousePosition.x > (this._canvas.width / 2) - 50 && mousePosition.x < (this._canvas.width / 2) - 50 + 100 && mousePosition.y < this._canvas.height - 20 + 20 && mousePosition.y > this._canvas.height - 20;
     }
 
     generateRandomPoints() {
