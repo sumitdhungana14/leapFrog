@@ -8,26 +8,27 @@
 
     <script src="js/ScatterPlot.js"></script>
     <script src="js/PieChart.js"></script>
+    <script src="js/BarChart.js"></script>
     <script>
-        var lineChart = new ScatterPlot(700, 700, [{
-            x: 500,
-            y: 80
-        }, {
-            x: 80,
-            y: 500
-        }, {
-            x: 1010,
-            y: 100
-        }, {
-            x: 200,
-            y: 380
-        }, {
-            x: 170,
-            y: 450
-        }, {
-            x: 300,
-            y: 400
-        }]);
+        // var lineChart = new ScatterPlot(700, 700, [{
+        //     x: 500,
+        //     y: 80
+        // }, {
+        //     x: 80,
+        //     y: 500
+        // }, {
+        //     x: 1010,
+        //     y: 100
+        // }, {
+        //     x: 200,
+        //     y: 380
+        // }, {
+        //     x: 170,
+        //     y: 450
+        // }, {
+        //     x: 300,
+        //     y: 400
+        // }]);
 
         var pieChart = new PieChart(600, 600, [{
             apple: 20
@@ -44,6 +45,26 @@
         }, {
             blueberry: 35
         }]);
+
+        var record = {
+            "Real Madrid": 13,
+            "Milan": 7,
+            "Barcelona": 5,
+            "Liverpool": 6,
+            "Munich": 5,
+            "Chelsea": 1
+        };
+
+        var barChart = new BarChart({
+            seriesName: "Champions League Trophy",
+            padding: 60,
+            gridScale: 2,
+            width: 600,
+            height: 600,
+            gridColor: "black",
+            data: record,
+            colors: ['#266A73', '#992AA0', '#965E08', '#67b6c7', '#bccd7a', '#eb9743', '#4CAF50', '#00BCD4', '#E91E63', ]
+        });
     </script>
 </body>
 
