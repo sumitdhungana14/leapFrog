@@ -48,7 +48,6 @@ class BarChart {
             var val = this._dataPoints[dataPoint];
             this.barHeight.push(Math.round(this.scale * val));
         }
-        console.log(this.barHeight);
     }
 
     getLine(context, startX, startY, endX, endY, color) {

@@ -9,10 +9,14 @@ class PieChart {
         this.offSetY = 30;
 
         this.total;
+        this.animationID;
+
         this.pieElements = [];
         this._dataPoints = dataPoints;
+        this.initialPieDraw = [];
 
         this.sliceAngles = [];
+        this.currentAngle = [];
 
         this.colors = ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E', '#CDDC39', '#266A73', '#992AA0', '#965E08'];
 
@@ -26,7 +30,10 @@ class PieChart {
         this.getTotal();
         this.convertToAngle();
 
-        this.draw();
+        this.setCurrentAngleForAnimation();
+        this.setSliceAngle();
+        this.initiateWithAnimation();
+        // this.draw();
 
         this.drawLabels();
 
@@ -87,31 +94,103 @@ class PieChart {
         });
     }
 
-    draw() {
+
+    setCurrentAngleForAnimation() {
+
+        var begin = 0;
+        var end = 0;
+        this.pieElements.forEach((angle, index) => {
+            if (this.currentAngle.length <= this._dataPoints.length) {
+                begin = end;
+                end = end + 2 * (Math.PI * this.pieElements[index]);
+                this.currentAngle.push(begin);
+            }
+
+        });
+
+    }
+
+    setSliceAngle() {
+
         var begin = 0;
         var end = 0;
         for (let i = 0; i < this.pieElements.length; i++) {
             begin = end;
             end = end + 2 * (Math.PI * this.pieElements[i]);
-
             if (this.sliceAngles.length < this._dataPoints.length) {
                 this.sliceAngles.push({
                     begin: begin / 2,
                     end: end / 2
                 });
             }
+        }
+    }
+
+
+    draw() {
+        var begin = 0;
+        var end = 0;
+
+        this.setSliceAngle();
+        for (let i = 0; i < this.pieElements.length; i++) {
+            begin = end;
+            end = end + 2 * (Math.PI * this.pieElements[i]);
 
             this._context.beginPath();
             this._context.fillStyle = this.colors[i % this.colors.length];
 
             this._context.moveTo(this.center.x, this.center.y);
+
+
             this._context.arc(this.center.x, this.center.y, this.radius, begin, end);
+
+
             this._context.lineTo(this.center.x, this.center.y);
             this._context.stroke();
 
             this._context.fill();
         }
 
+    }
+
+    initiateWithAnimation() {
+
+        this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+        // console.log(this.sliceAngles);
+        var begin = 0;
+        var end = 0;
+        for (let i = 0; i < this.pieElements.length; i++) {
+            begin = end;
+            end = end + 2 * (Math.PI * this.pieElements[i]);
+            this.initialPieDraw[i] = false;
+            this._context.beginPath();
+            this._context.fillStyle = this.colors[i % this.colors.length];
+
+            this._context.moveTo(this.center.x, this.center.y);
+
+            if (this.currentAngle[i] <= end) {
+                this._context.arc(this.center.x, this.center.y, this.radius, begin, this.currentAngle[i]);
+                this.currentAngle[i] += 0.010;
+            } else {
+                this._context.arc(this.center.x, this.center.y, this.radius, begin, end);
+                this.initialPieDraw[i] = true;
+            }
+
+            this._context.lineTo(this.center.x, this.center.y);
+            this._context.stroke();
+
+            this._context.fill();
+        }
+
+
+        this.drawLabels();
+        this.randomButton();
+
+        this.animationID = window.requestAnimationFrame(this.initiateWithAnimation.bind(this));
+
+        if (this.isInitialDrawingCompleted()) {
+            window.cancelAnimationFrame(this.animationID);
+        }
     }
 
     drawLabels() {
@@ -176,18 +255,19 @@ class PieChart {
     highlightSliceOnClick(begin, end, currentSliceIndex) {
 
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+        this.draw();
+
         this._context.beginPath();
-        this._context.fillStyle = 'grey';
+        this._context.fillStyle = this.colors[currentSliceIndex % this.colors.length];
 
         this._context.moveTo(this.center.x, this.center.y);
-        this._context.arc(this.center.x, this.center.y, this.radius + 10, 2 * begin, 2 * end);
+        this._context.arc(this.center.x, this.center.y, this.radius + 10, 2 * begin - (6.28 / 180), 2 * end + (6.28 / 180));
         this._context.lineTo(this.center.x, this.center.y);
         this._context.stroke();
 
         this._context.fill();
 
         this.showCurrentSliceInfo(currentSliceIndex);
-        this.draw();
 
         this.drawLabels();
 
@@ -214,12 +294,16 @@ class PieChart {
     leavePieSlice() {
 
         this._canvas.onmouseleave = event => {
-            this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
-            this.draw();
+            if (this.isInitialDrawingCompleted()) {
 
-            this.drawLabels();
+                this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+                window.cancelAnimationFrame(this.animationID);
+                this.draw();
 
-            this.randomButton();
+                this.drawLabels();
+
+                this.randomButton();
+            }
         };
     }
 
@@ -243,13 +327,14 @@ class PieChart {
     }
 
     generateRandomDataPoints() {
+        // window.cancelAnimationFrame(this.animationID);
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
         this.sliceAngles = [];
         this._dataPoints = [];
         this.pieElements = [];
 
-        for (let i = 0; i <= 6; i++) {
+        for (let i = 0; i <= Math.ceil(Math.random() * 6); i++) {
             this._dataPoints.push({ 'x': Math.ceil(Math.random() * 100) });
         }
 
@@ -262,6 +347,13 @@ class PieChart {
 
         this.randomButton();
 
+    }
+
+    isInitialDrawingCompleted() {
+
+        return this.initialPieDraw.reduce((isCompleted, val) => {
+            return isCompleted && val;
+        }, true);
     }
 
     render() {

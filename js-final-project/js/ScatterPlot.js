@@ -9,8 +9,8 @@ class ScatterPlot {
         this.Xmax;
         this.Ymax;
 
-        this.xGap;
-        this.yGap;
+        this.Xmin;
+        this.Ymin;
 
         this.scaleX;
         this.scaleY;
@@ -36,6 +36,9 @@ class ScatterPlot {
         this.checkClickOnRandomize();
 
         this.render();
+        this.generateInputRange();
+        this.generateButton();
+        this.showRange();
 
     }
 
@@ -57,6 +60,7 @@ class ScatterPlot {
 
     setDataSource(dataSource) {
         this._dataSource = dataSource;
+        this._cloneDataSource = dataSource;
     }
 
 
@@ -68,8 +72,10 @@ class ScatterPlot {
         };
     }
 
-    getPoints(dataPoints) {
-        dataPoints.forEach(dataPoint => {
+    getPoints(dataSource) {
+        this.xPoints = [];
+        this.yPoints = [];
+        dataSource.forEach(dataPoint => {
             this.xPoints.push(dataPoint.x);
             this.yPoints.push(dataPoint.y);
         });
@@ -78,11 +84,14 @@ class ScatterPlot {
         this.Xmax = Math.max(...this.xPoints);
         this.Ymax = Math.max(...this.yPoints);
 
+        this.Xmin = Math.min(...this.xPoints);
+        this.Ymin = Math.min(...this.yPoints);
+
     }
 
     setScale() {
-        this.scaleX = (this._canvas.width - this.offsetX) / this.Xmax;
-        this.scaleY = (this._canvas.height - this.offsetY) / this.Ymax;
+        this.scaleX = (this._canvas.width - this.offsetX) / (this.Xmax);
+        this.scaleY = (this._canvas.height - this.offsetY) / (this.Ymax);
     }
 
     drawAxes() {
@@ -114,7 +123,7 @@ class ScatterPlot {
         }
 
         for (let i = 0; i < 10; i++) {
-            let scaleStep = stepX / this.scaleX;
+            let scaleStep = (stepX / this.scaleX);
             this._context.moveTo(startX + i * stepX, startY);
             this._context.lineTo(startX + i * stepX, startY + length);
             this._context.stroke();
@@ -130,7 +139,7 @@ class ScatterPlot {
     }
 
     drawPoint(xCord, yCord) {
-        var pointOnCanvasX = (this.offsetX / 2) + (xCord * this.scaleX) - 5;
+        var pointOnCanvasX = (this.offsetX / 2) + (xCord * this.scaleX);
         var pointOnCanvasY = this._canvas.height - (this.offsetY / 2) - (yCord) * this.scaleY;
 
         if (this.positionOnCanvas.length < this._dataSource.length) {
@@ -207,10 +216,14 @@ class ScatterPlot {
     generateRandomPoints() {
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
 
-
         this._dataSource = [];
-        for (let i = 0; i <= 5; i++) {
-            this._dataSource.push({ 'x': Math.ceil(Math.random() * 1000), 'y': Math.ceil(Math.random() * 1000) });
+        this._cloneDataSource = [];
+
+        for (let i = 0; i < 100; i++) {
+            var x = Math.ceil(Math.random() * 1000);
+            var y = Math.ceil(Math.random() * 1000);
+            this._dataSource.push({ 'x': x, 'y': y });
+            this._cloneDataSource.push({ 'x': x, 'y': y });
         }
 
         this.getPoints(this._dataSource);
@@ -218,14 +231,171 @@ class ScatterPlot {
         this.drawAxes();
         this.drawAxisLabels();
         this.positionOnCanvas = [];
+        // this.getPoints(this._dataSource);
+        this.draw(this._dataSource);
+        this.randomButton();
+        // this.render();
+        // this.generateInputRange();
+    }
+
+    generateInputRange() {
+        var container = document.getElementById('container');
+
+        var lowRange = document.getElementById('low-input-range');
+        var highRange = document.getElementById('high-input-range');
+
+        if (lowRange && highRange) {
+            lowRange.setAttribute('min', Math.min(...this.xPoints));
+            lowRange.setAttribute('max', this.Xmax);
+            highRange.setAttribute('min', Math.min(...this.xPoints));
+            highRange.setAttribute('max', this.Xmax);
+
+        } else {
+            var lowRange = document.createElement('INPUT');
+            lowRange.setAttribute('id', 'low-input-range');
+            lowRange.setAttribute('type', 'range');
+
+            lowRange.style.position = 'absolute';
+            lowRange.style.left = this.offsetX / 2 + 'px';
+            lowRange.setAttribute('min', Math.min(...this.xPoints));
+            lowRange.setAttribute('max', Math.max(...this.yPoints));
+
+            var highRange = document.createElement('INPUT');
+            highRange.setAttribute('id', 'high-input-range');
+            highRange.setAttribute('type', 'range');
+
+            highRange.style.position = 'absolute';
+            highRange.style.left = (this._canvas.width / 2) - 60 + 'px';
+            highRange.setAttribute('min', Math.min(...this.xPoints));
+            highRange.setAttribute('max', Math.max(...this.yPoints));
+
+            lowRange.addEventListener('input', event => {
+                this.lowRangeValue = lowRange.value;
+                this.showRange()
+            }, false);
+            highRange.addEventListener('input', event => {
+                this.highRangeValue = highRange.value;
+                this.showRange()
+            }, false);
+
+            container.appendChild(lowRange);
+            container.appendChild(highRange);
+        }
+    }
+
+    generateButton() {
+
+        var container = document.getElementById('container');
+
+        var zoomButton = document.createElement('button');
+        zoomButton.style.position = 'absolute';
+
+        zoomButton.style.left = this._canvas.width - 170 + 'px';
+        zoomButton.style.height = '20px';
+        zoomButton.style.width = '60px';
+        zoomButton.innerHTML = 'Zoom';
+
+        zoomButton.addEventListener('click', event => {
+            this.zoomGraph()
+        })
+
+        var resetButton = document.createElement('button');
+        resetButton.style.position = 'absolute';
+
+        resetButton.style.left = this._canvas.width - 90 + 'px';
+        resetButton.style.height = '20px';
+        resetButton.style.width = '60px';
+        resetButton.innerHTML = 'Reset';
+
+        resetButton.addEventListener('click', event => {
+            this.resetGraph()
+        })
+
+        container.appendChild(zoomButton);
+        container.appendChild(resetButton);
+    }
+
+    zoomGraph() {
+
+        if (this.lowRangeValue >= this.highRangeValue) {
+            return;
+        }
+
+        this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+
+        this._dataSource = this._dataSource.filter(dataPoint => {
+            return this.lowRangeValue <= dataPoint.x && this.highRangeValue >= dataPoint.x;
+        })
+
+        this.getPoints(this._dataSource);
+        this.setScale();
+        this.drawAxes();
+        this.drawAxisLabels();
+        this.positionOnCanvas = [];
+
         this.draw(this._dataSource);
         this.randomButton();
     }
 
+    resetGraph() {
+
+        this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+
+        this._dataSource = [];
+        var tempDataPoints = [];
+        tempDataPoints.push(...this._cloneDataSource);
+        this._dataSource = tempDataPoints;
+
+        this.getPoints(this._dataSource);
+        this.setScale();
+        this.drawAxes();
+        this.drawAxisLabels();
+        this.positionOnCanvas = [];
+
+        this.draw(this._dataSource);
+        this.randomButton();
+    }
+
+    showRange() {
+        var container = document.getElementById('container');
+
+        var lowRange = document.getElementById('low-input-value');
+        var highRange = document.getElementById('high-input-value');
+
+        if (lowRange && highRange) {
+            lowRange.innerText = "";
+            lowRange.innerText = this.lowRangeValue || 0;
+            highRange.innerText = this.highRangeValue || 0;
+        } else {
+            var lowRange = document.createElement('div');
+            lowRange.setAttribute('id', 'low-input-value');
+            lowRange.style.position = 'absolute';
+            lowRange.style.left = (this._canvas.width / 2) - 110 + 'px';
+            lowRange.style.top = 10 + 'px';
+            lowRange.innerHTML = this.lowRangeValue || 0;
+
+            var highRange = document.createElement('div');
+            highRange.setAttribute('id', 'high-input-value');
+            highRange.style.position = 'absolute';
+            highRange.style.left = (this._canvas.width / 2) + 80 + 'px';
+            highRange.style.top = 10 + 'px';
+            highRange.innerHTML = this.highRangeValue || 0;
+
+
+            container.appendChild(lowRange);
+            container.appendChild(highRange);
+
+        }
+    }
+
     render() {
 
+        var container = document.createElement('div');
+        container.setAttribute('id', 'container');
         var canvas = this.getCanvasElement();
-        document.body.appendChild(canvas);
+
+        document.body.appendChild(container);
+        container.appendChild(canvas);
     }
 
 }
