@@ -317,9 +317,11 @@ class ScatterPlot {
 
     zoomGraph() {
 
-        if (this.lowRangeValue >= this.highRangeValue) {
+        if (!(this.lowRangeValue && this.highRangeValue)) return;
+        if (parseInt(this.lowRangeValue) >= parseInt(this.highRangeValue)) {
+            console.log(this.lowRangeValue, this.highRangeValue);
             return;
-        }
+        };
 
         this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
 

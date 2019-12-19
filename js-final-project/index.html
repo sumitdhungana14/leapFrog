@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -16,38 +17,40 @@
     <script src="js/BarChart.js"></script>
     <script src="js/SplineCurve.js"></script>
     <script>
-        var data = [];
+        var scatterData = [];
         for (let i = 0; i < 100; i++) {
-            data.push({
+            scatterData.push({
                 'x': Math.ceil(Math.random() * 1000),
                 'y': Math.ceil(Math.random() * 1000),
             })
         }
-        var scatterPlot = new ScatterPlot(600, 600, data);
+        var scatterPlot = new ScatterPlot(600, 600, scatterData);
 
-        var pieChart = new PieChart(600, 600, [{
-            apple: 20
+        var pieData = [{
+            apple: Math.ceil(Math.random() * 100)
         }, {
-            banana: 30
+            banana: Math.ceil(Math.random() * 100)
         }, {
-            pipeapple: 80
+            pipeapple: Math.ceil(Math.random() * 100)
         }, {
-            grapes: 70
+            grapes: Math.ceil(Math.random() * 100)
         }, {
-            melon: 90
+            melon: Math.ceil(Math.random() * 100)
         }, {
-            strawberry: 75
+            strawberry: Math.ceil(Math.random() * 100)
         }, {
-            blueberry: 35
-        }]);
+            blueberry: Math.ceil(Math.random() * 100)
+        }];
 
-        var record = {
-            "Real Madrid": 13,
-            "Milan": 7,
-            "Barcelona": 5,
-            "Liverpool": 6,
-            "Munich": 5,
-            "Chelsea": 1
+        var pieChart = new PieChart(600, 600, pieData);
+
+        var barData = {
+            "Real Madrid": Math.ceil(Math.random() * 20),
+            "Milan": Math.ceil(Math.random() * 20),
+            "Barcelona": Math.ceil(Math.random() * 20),
+            "Liverpool": Math.ceil(Math.random() * 20),
+            "Munich": Math.ceil(Math.random() * 20),
+            "Chelsea": Math.ceil(Math.random() * 20)
         };
 
         var barChart = new BarChart({
@@ -57,7 +60,7 @@
             width: 600,
             height: 600,
             gridColor: "black",
-            data: record,
+            data: barData,
             colors: ['#266A73', '#992AA0', '#965E08', '#67b6c7', '#bccd7a', '#eb9743', '#4CAF50', '#00BCD4', '#E91E63', ]
         });
 
