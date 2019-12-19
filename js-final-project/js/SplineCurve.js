@@ -29,6 +29,7 @@ class Spline {
 
         this.draw(dataSource);
         this.setControlPoints();
+        this.drawSpline();
 
         this.render();
 
@@ -139,18 +140,56 @@ class Spline {
     generateControlPoint(dataPoint, index) {
 
         if ((index) < (this._dataSource.length - 1)) {
-            var nextPoint = this._dataSource[index + 1];
-            this.getControlPoints(dataPoint, nextPoint);
+            var nextPoint = this.positionOnCanvas[index + 1];
+            this.calculateControlPoints(this.positionOnCanvas[index], nextPoint, index + 1);
         } else {
             return;
         }
+    }
 
+    calculateControlPoints(dataPoint, nextPoint, index) {
+        if (index % 2 !== 0) {
+            if (nextPoint.y > dataPoint.y) {
+                var controlPoint = {
+                    'x': nextPoint.x,
+                    'y': dataPoint.y
+                }
+
+            } else {
+                var controlPoint = {
+                    'x': dataPoint.x,
+                    'y': nextPoint.y
+                }
+
+            }
+            this.controlPoints.push(controlPoint);
+        } else {
+            if (nextPoint.y > dataPoint.y) {
+                var controlPoint = {
+                    'x': dataPoint.x,
+                    'y': nextPoint.y
+                }
+
+            } else {
+                var controlPoint = {
+                    'x': nextPoint.x,
+                    'y': dataPoint.y
+                }
+
+            }
+
+            this.controlPoints.push(controlPoint);
+        }
 
     }
 
-    getControlPoints(dataPoint, nextPoint) {
-
-
+    drawSpline() {
+        this.controlPoints.forEach((controlPoint, index) => {
+            this._context.beginPath();
+            this._context.moveTo(this.positionOnCanvas[index].x, this.positionOnCanvas[index].y);
+            this._context.quadraticCurveTo(controlPoint.x, controlPoint.y, this.positionOnCanvas[index + 1].x, this.positionOnCanvas[index + 1].y);
+            this._context.stroke();
+        })
     }
 
     render() {
@@ -160,5 +199,6 @@ class Spline {
 
         document.body.appendChild(container);
         container.appendChild(canvas);
+
     }
 }
