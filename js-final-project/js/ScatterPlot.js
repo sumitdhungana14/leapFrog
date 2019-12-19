@@ -23,7 +23,7 @@ class ScatterPlot {
         this.initCanvas(width, height);
         this.setDataSource(dataSource);
 
-        this.getPoints(dataSource);
+        this.getPoints();
         this.setScale();
         this.drawAxes();
         this.drawAxisLabels();
@@ -72,10 +72,10 @@ class ScatterPlot {
         };
     }
 
-    getPoints(dataSource) {
+    getPoints() {
         this.xPoints = [];
         this.yPoints = [];
-        dataSource.forEach(dataPoint => {
+        this._dataSource.forEach(dataPoint => {
             this.xPoints.push(dataPoint.x);
             this.yPoints.push(dataPoint.y);
         });
@@ -226,16 +226,15 @@ class ScatterPlot {
             this._cloneDataSource.push({ 'x': x, 'y': y });
         }
 
-        this.getPoints(this._dataSource);
+        this.getPoints();
         this.setScale();
         this.drawAxes();
         this.drawAxisLabels();
+        this.showRange();
+        this.generateInputRange();
         this.positionOnCanvas = [];
-        // this.getPoints(this._dataSource);
         this.draw(this._dataSource);
         this.randomButton();
-        // this.render();
-        // this.generateInputRange();
     }
 
     generateInputRange() {
@@ -319,7 +318,6 @@ class ScatterPlot {
 
         if (!(this.lowRangeValue && this.highRangeValue)) return;
         if (parseInt(this.lowRangeValue) >= parseInt(this.highRangeValue)) {
-            console.log(this.lowRangeValue, this.highRangeValue);
             return;
         };
 
@@ -329,7 +327,7 @@ class ScatterPlot {
             return this.lowRangeValue <= dataPoint.x && this.highRangeValue >= dataPoint.x;
         })
 
-        this.getPoints(this._dataSource);
+        this.getPoints();
         this.setScale();
         this.drawAxes();
         this.drawAxisLabels();
@@ -348,7 +346,7 @@ class ScatterPlot {
         tempDataPoints.push(...this._cloneDataSource);
         this._dataSource = tempDataPoints;
 
-        this.getPoints(this._dataSource);
+        this.getPoints();
         this.setScale();
         this.drawAxes();
         this.drawAxisLabels();

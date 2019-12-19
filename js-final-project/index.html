@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Graph</title>
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -61,10 +61,24 @@
             height: 600,
             gridColor: "black",
             data: barData,
-            colors: ['#266A73', '#992AA0', '#965E08', '#67b6c7', '#bccd7a', '#eb9743', '#4CAF50', '#00BCD4', '#E91E63', ]
+            colors: ['#EE82EE', '#FA8072', '#DB7093', '#FFC107', '#87CEFA', '#FFC0CB', '#266A73', '#992AA0', '#965E08']
         });
 
-        // var spline = new Spline(400, 400, data);
+        var splineData = [{
+            'x': 5,
+            'y': 20
+        }, {
+            'x': 10,
+            'y': 10
+        }, {
+            'x': 15,
+            'y': 5
+        }, {
+            'x': 20,
+            'y': 30
+        }]
+
+        var spline = new Spline(600, 600, splineData);
     </script>
 </body>
 

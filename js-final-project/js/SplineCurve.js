@@ -5,6 +5,7 @@ class Spline {
         this.yPoints = [];
 
         this.positionOnCanvas = [];
+        this.controlPoints = [];
 
         this.Xmax;
         this.Ymax;
@@ -20,11 +21,14 @@ class Spline {
 
         this.initCanvas(width, height);
         this.setDataSource(dataSource);
-        this.getPoints(dataSource);
+        this.getPoints();
 
         this.setScale();
         this.drawAxes();
         this.drawAxisLabels();
+
+        this.draw(dataSource);
+        this.setControlPoints();
 
         this.render();
 
@@ -103,7 +107,49 @@ class Spline {
             this._context.fillText(Math.floor(i * scaleStep), startX + i * stepX - 8, startY + 20)
         }
 
-        console.log(this._dataSource);
+
+    }
+
+    draw(dataPoints) {
+        dataPoints.forEach(point => {
+            this.drawPoint(point.x, point.y);
+        });
+    }
+
+    drawPoint(xCord, yCord) {
+        var pointOnCanvasX = (this.offsetX / 2) + (xCord * this.scaleX);
+        var pointOnCanvasY = this._canvas.height - (this.offsetY / 2) - (yCord) * this.scaleY;
+
+        if (this.positionOnCanvas.length < this._dataSource.length) {
+            this.positionOnCanvas.push({ 'x': pointOnCanvasX, 'y': pointOnCanvasY });
+        }
+
+        this._context.beginPath();
+        this._context.moveTo(80, 80);
+        this._context.arc(pointOnCanvasX, pointOnCanvasY, 2, 0, 2 * Math.PI);
+        this._context.fill();
+    }
+
+    setControlPoints() {
+        this._dataSource.forEach((dataPoint, index) => {
+            this.generateControlPoint(dataPoint, index);
+        })
+    }
+
+    generateControlPoint(dataPoint, index) {
+
+        if ((index) < (this._dataSource.length - 1)) {
+            var nextPoint = this._dataSource[index + 1];
+            this.getControlPoints(dataPoint, nextPoint);
+        } else {
+            return;
+        }
+
+
+    }
+
+    getControlPoints(dataPoint, nextPoint) {
+
 
     }
 

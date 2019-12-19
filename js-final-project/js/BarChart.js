@@ -9,6 +9,8 @@ class BarChart {
 
         this.currentValue = [];
         this.barHeight = [];
+        this.drawCompleted = [];
+        this.initialAnimation;
 
         this.initCanvas();
         this.setConfigs();
@@ -48,6 +50,7 @@ class BarChart {
             var val = this._dataPoints[dataPoint];
             this.barHeight.push(Math.round(this.scale * val));
         }
+
     }
 
     getLine(context, startX, startY, endX, endY, color) {
@@ -91,7 +94,11 @@ class BarChart {
         this.drawLabels();
         this.randomButton();
 
-        window.requestAnimationFrame(this.draw.bind(this));
+        this.initialAnimation = window.requestAnimationFrame(this.draw.bind(this));
+
+        if (this.hasInitialDrawCompleted()) {
+            window.cancelAnimationFrame(this.initialAnimation);
+        }
     }
 
     drawGrids() {
@@ -119,12 +126,12 @@ class BarChart {
         var barIndex = 0;
 
         for (let dataPoint in this._dataPoints) {
-
+            this.drawCompleted[barIndex] = true;
             this.getBar(this._context, this.config.padding + barIndex * this.barSize, this._canvas.height - this.currentValue[barIndex] - this.config.padding, this.barSize, this.currentValue[barIndex], this.colors[barIndex % this.colors.length]);
 
             if (this.currentValue[barIndex] <= this.barHeight[barIndex]) {
                 this.currentValue[barIndex] += this.speed;
-
+                this.drawCompleted[barIndex] = false;
             }
             barIndex++;
         }
@@ -194,7 +201,15 @@ class BarChart {
         }
 
         this.setConfigs();
+        this.draw();
 
+    }
+
+    hasInitialDrawCompleted() {
+
+        return this.drawCompleted.reduce((isCompleted, val) => {
+            return isCompleted && val;
+        }, true);
     }
 
     render() {

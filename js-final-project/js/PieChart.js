@@ -18,7 +18,7 @@ class PieChart {
         this.sliceAngles = [];
         this.currentAngle = [];
 
-        this.colors = ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E', '#CDDC39', '#266A73', '#992AA0', '#965E08'];
+        this.colors = ['#EE82EE', '#FA8072', '#DB7093', '#FFC107', '#87CEFA', '#FFC0CB', '#266A73', '#992AA0', '#965E08'];
 
         this.currentSliceIndex;
 
