@@ -1,6 +1,7 @@
 import React from 'react'
 import ListComponent from './ListComponent'
 import Form from './Form'
+import FilterableProductTable from './FilterableProductTable';
 import './index.css'
 
 
@@ -20,7 +21,7 @@ class App extends React.Component {
                 title: 'title3',
                 body: 'body3'
             }
-        ]
+        ],
     }
 
     removePost = index => {
@@ -49,6 +50,7 @@ class App extends React.Component {
             <div>
                 <ListComponent records={posts} removePost={this.removePost} />
                 <Form addPost={this.addPost}/>
+                <FilterableProductTable/>
             </div>
         )
     }
